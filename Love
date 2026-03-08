@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Nossa História ❤️</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background: linear-gradient(135deg,#ff758c,#ff7eb3);
+color:white;
+text-align:center;
+}
+
+.container{
+padding:30px;
+}
+
+h1{
+font-size:40px;
+}
+
+#contador{
+font-size:28px;
+margin:20px;
+font-weight:bold;
+}
+
+.galeria{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:15px;
+}
+
+.galeria img{
+width:220px;
+border-radius:15px;
+transition:0.3s;
+}
+
+.galeria img:hover{
+transform:scale(1.05);
+}
+
+.mensagem{
+font-size:20px;
+margin-top:20px;
+}
+
+.botao{
+margin-top:20px;
+padding:10px 20px;
+border:none;
+background:white;
+color:#ff4f81;
+font-size:18px;
+border-radius:10px;
+cursor:pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>❤️ Nossa História ❤️</h1>
+
+<div id="contador"></div>
+
+<div class="galeria">
+<img src="foto1.jpg">
+<img src="foto2.jpg">
+<img src="foto3.jpg">
+<img src="foto4.jpg">
+</div>
+
+<p class="mensagem">
+Cada momento ao seu lado é especial ❤️
+</p>
+
+<button class="botao" onclick="tocarMusica()">Tocar nossa música 🎵</button>
+
+<audio id="musica">
+<source src="musica.mp3" type="audio/mpeg">
+</audio>
+
+</div>
+
+<script>
+
+var dataInicio = new Date("2022-06-10");
+
+function atualizarContador(){
+
+var hoje = new Date();
+var diff = hoje - dataInicio;
+
+var segundos = Math.floor(diff/1000);
+var minutos = Math.floor(segundos/60);
+var horas = Math.floor(minutos/60);
+var dias = Math.floor(horas/24);
+
+var anos = Math.floor(dias/365);
+dias = dias % 365;
+
+document.getElementById("contador").innerHTML =
+"Juntos há " + anos + " anos e " + dias + " dias ❤️";
+
+}
+
+setInterval(atualizarContador,1000);
+
+function tocarMusica(){
+document.getElementById("musica").play();
+}
+
+</script>
+
+</body>
+</html>
